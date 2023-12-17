@@ -1,5 +1,5 @@
 #!/bin/sh
-# ⚠️ Keep this script simple and easily auditable!
+# Keep this script simple and easily auditable!
 set -e
 if [ -n "$DEBUG" ]; then
   set -x
