@@ -43,7 +43,7 @@ mv -f "$typst_install/$folder/typst" "$typst_install/bin/typst"
 chmod +x "$typst_install/bin/typst"
 
 mv -f "$typst_install/$folder"/* "$typst_install"
-rm -rf "$typst_install/$folder"
+rm -rf "${typst_install:?}/$folder"
 
 echo "Typst installed to $typst_install/bin/typst"
 
@@ -58,7 +58,7 @@ else
 Manually add the directory to your \$HOME/$shell_profile (or similar)
   export TYPST_INSTALL=\"$typst_install\"
   export PATH=\"\$TYPST_INSTALL/bin:\$PATH\"
-Run '$exe --help' to get started
+Run '$typst_install/bin/typst --help' to get started
 EOF
 fi
 
