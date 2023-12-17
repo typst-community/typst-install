@@ -37,9 +37,9 @@ fi
 echo "Downloading Typst from $url"
 curl -fsSL "$url" -o "$typst_install/$file"
 if [ "$archive_ext" = ".zip" ]; then
-  unzip -d "$typst_install" -o "$file"
+  unzip -d "$typst_install" -o "$typst_install/$file"
 else
-  tar -xJf "$file" -C "$typst_install"
+  tar -xJf "$typst_install/$file" -C "$typst_install"
 fi
 
 mkdir -p "$typst_install/bin"
