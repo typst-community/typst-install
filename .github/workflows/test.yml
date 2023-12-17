@@ -45,7 +45,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - run: type install.ps1
-      - run: type install.ps1 | iex
+      - run: npm install --global serve
+      - shell: bash
+        run: nohup serve -p 8000 & wait 3
+      - run: irm http://localhost:8000/install.ps1 | iex
       - run: typst --version
       - run: typst compile test.typ
