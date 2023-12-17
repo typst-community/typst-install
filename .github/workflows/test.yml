@@ -30,16 +30,15 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
-      - shell: bash
-        run: cat install.sh | sh
-      - shell: bash
-        run: echo "$HOME/.typst/bin" >> "$GITHUB_PATH"
-      - shell: bash
-        run: typst --version
-      - shell: bash
-        run: typst compile test.typ
+      - run: cat install.sh | sh
+      - run: echo "$HOME/.typst/bin" >> "$GITHUB_PATH"
+      - run: typst --version
+      - run: typst compile test.typ
   install-ps1:
     runs-on: windows-latest
     steps:
