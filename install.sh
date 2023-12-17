@@ -34,6 +34,7 @@ else
   url="https://github.com/typst/typst/releases/download/$1/$file"
 fi
 
+echo "Downloading Typst from $url"
 curl -fsSL "$url" -o "$typst_install/$file"
 if [ "$archive_ext" = ".zip" ]; then
   unzip -d "$typst_install" -o "$file"
