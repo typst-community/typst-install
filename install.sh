@@ -1,6 +1,9 @@
 #!/bin/sh
 # ⚠️ Keep this script simple and easily auditable!
 set -e
+if [ -n "$DEBUG" ]; then
+  set -x
+fi
 
 if [ "$OS" = "Windows_NT" ]; then
 	target="x86_64-pc-windows-msvc"
