@@ -15,8 +15,8 @@ typst compile paper.typ
 🚀 Easy to get started; just one shell command! \
 🟦 Works on Windows too
 
-👀 Don't want to use `curl | sh`? You can follow the [official Typst
-installation instructions] to download a binary from the [typst/typst releases].
+👀 Don't want to use `curl | sh`? Follow the [official Typst installation
+instructions] and download a binary from [typst/typst releases].
 
 ## Usage
 
