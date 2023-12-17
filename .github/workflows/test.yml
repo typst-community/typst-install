@@ -49,5 +49,5 @@ jobs:
       - shell: bash
         run: nohup serve -p 8000 & sleep 3
       - run: irm http://localhost:8000/install.ps1 | iex
-      - run: typst --version
-      - run: typst compile test.typ
+      - run: typst.exe --version
+      - run: typst.exe compile test.typ
