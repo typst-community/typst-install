@@ -2,9 +2,9 @@
 set -e
 
 if [ "$OS" = "Windows_NT" ]; then
-  pwsh -command 'type install.ps1 | iex'
+  DEBUG=1 pwsh -command 'type install.ps1 | iex'
 else
-  cat install.sh | sh
+  cat install.sh | DEBUG=1 sh
 fi
 
 typst --version
