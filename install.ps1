@@ -1,51 +1,47 @@
 #!/usr/bin/env pwsh
 # Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
 # TODO(everyone): Keep this script simple and easily auditable.
-# Forked from Deno's install.ps1 script
-
+# ⚠️ Keep this script simple and easily auditable!
 $ErrorActionPreference = 'Stop'
 
 if ($v) {
-  $Version = "v${v}"
+  $Tag = "v${v}"
 }
 if ($Args.Length -eq 1) {
   $Version = $Args.Get(0)
+  $Tag = "v${Version}"
 }
 
 $TypstInstall = $env:TYPST_INSTALL
-$BinDir = if ($TypstInstall) {
-  "${TypstInstall}\bin"
-} else {
-  "${Home}\.typst\bin"
+if (!$TypstInstall) {
+  $TypstInstall = "${Home}\.typst"
 }
 
-$TypstZip = "$BinDir\typst.zip"
-$TypstExe = "$BinDir\typst.exe"
 $Target = 'x86_64-pc-windows-msvc'
+$Folder = "typst-${Target}"
+$File = "$Folder.zip"
 
-$DownloadUrl = if (!$Version) {
-  "https://github.com/typst/typst/releases/latest/download/typst-${Target}.zip"
+$URL = if (!$Tag) {
+  "https://github.com/typst/typst/releases/latest/download/$File"
 } else {
-  "https://github.com/typst/typst/releases/download/${Version}/typst-${Target}.zip"
+  "https://github.com/typst/typst/releases/download/${Tag}/$File"
 }
 
-if (!(Test-Path $BinDir)) {
-  New-Item $BinDir -ItemType Directory | Out-Null
+if (!(Test-Path "$TypstInstall")) {
+  New-Item "$TypstInstall" -ItemType Directory | Out-Null
 }
 
-curl.exe -Lo $TypstZip $DownloadUrl
-
-tar.exe xf $TypstZip -C $BinDir --strip-components=1
-
-Remove-Item $TypstZip
+curl.exe -fsSL "$URL" -o "$TypstInstall\$File"
+tar.exe -xf "$TypstInstall\$File" -C "$TypstInstall"
+Remove-Item "$TypstInstall\$File"
 
 $User = [System.EnvironmentVariableTarget]::User
 $Path = [System.Environment]::GetEnvironmentVariable('Path', $User)
-if (!(";${Path};".ToLower() -like "*;${BinDir};*".ToLower())) {
-  [System.Environment]::SetEnvironmentVariable('Path', "${Path};${BinDir}", $User)
-  $Env:Path += ";${BinDir}"
+if (!(";${Path};".ToLower() -like "*;$TypstInstall\$Folder;*".ToLower())) {
+  [System.Environment]::SetEnvironmentVariable('Path', "${Path};$TypstInstall\$Folder", $User)
+  $Env:Path += ";$TypstInstall\$Folder"
 }
 
-Write-Output "Typst was installed successfully to ${TypstExe}"
+Write-Output "Typst was installed successfully to $TypstInstall\$Folder\typst.exe"
 Write-Output "Run 'typst --help' to get started"
-Write-Output "Stuck? Join our Discord https://discord.gg/2uDybryKPe"
+Write-Output "Stuck? Open an Issue https://github.com/typst-community/install_typst/issues"

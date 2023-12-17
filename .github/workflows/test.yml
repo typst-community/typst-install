@@ -1,4 +1,4 @@
-name: install_test.sh
+name: Test
 on:
   push:
     branches: "main"
@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: shellcheck install.sh
-  install_test:
+  install:
     strategy:
       fail-fast: false
       matrix:
@@ -32,4 +32,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - run: bash ./install_test.sh
+      - shell: bash
+        run: cat install.sh | sh
+      - shell: bash
+        run: echo "$HOME/.typst/bin" >> "$GITHUB_PATH"
+      - run: typst --version
+      - run: typst compile test.typ
+  install-ps1:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: type install.ps1 | iex
+      - run: typst --version
+      - run: typst compile test.typ

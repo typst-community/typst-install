@@ -41,6 +41,7 @@ if [ "$archive_ext" = ".zip" ]; then
 else
   tar -xJf "$typst_install/$file" -C "$typst_install"
 fi
+rm -f "$typst_install/$file"
 
 mkdir -p "$typst_install/bin"
 mv -f "$typst_install/$folder/typst" "$typst_install/bin/typst"
@@ -71,4 +72,4 @@ Run '$typst_install/bin/typst --help' to get started
 EOF
 fi
 
-echo "Suck? Open an Issue https://github.com/typst-community/install_typst/issues"
+echo "Stuck? Open an Issue https://github.com/typst-community/install_typst/issues"
