@@ -1,6 +1,3 @@
-#!/usr/bin/env pwsh
-# Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
-# TODO(everyone): Keep this script simple and easily auditable.
 # ⚠️ Keep this script simple and easily auditable!
 $ErrorActionPreference = 'Stop'
 
