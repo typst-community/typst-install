@@ -29,9 +29,9 @@ typst_install="${TYPST_INSTALL:-$HOME/.typst}"
 mkdir -p "$typst_install"
 
 if [ -n "$1" ]; then
-  url="https://github.com/typst/typst/releases/latest/download/$file"
-else
   url="https://github.com/typst/typst/releases/download/$1/$file"
+else
+  url="https://github.com/typst/typst/releases/latest/download/$file"
 fi
 
 echo "Downloading Typst from $url"
