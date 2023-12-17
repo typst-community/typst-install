@@ -6,10 +6,10 @@ if [ "$OS" = "Windows_NT" ]; then
 	target="x86_64-pc-windows-msvc"
 else
 	case $(uname -sm) in
-	"Darwin x86_64") target="x86_64-apple-darwin";;;
-	"Darwin arm64") target="aarch64-apple-darwin";;
-	"Linux aarch64") target="aarch64-unknown-linux-musl";;
-	*) target="x86_64-unknown-linux-gnu";;
+    "Darwin x86_64") target="x86_64-apple-darwin";;
+    "Darwin arm64") target="aarch64-apple-darwin";;
+    "Linux aarch64") target="aarch64-unknown-linux-musl";;
+    *) target="x86_64-unknown-linux-gnu";;
 	esac
 fi
 
