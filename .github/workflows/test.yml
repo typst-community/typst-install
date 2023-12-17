@@ -43,6 +43,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - run: type install.ps1 | iex
+      - run: Get-Content ./install.ps1 | iex
       - run: typst --version
       - run: typst compile test.typ
