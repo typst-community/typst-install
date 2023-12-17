@@ -7,5 +7,9 @@ else
   cat install.sh | DEBUG=1 sh
 fi
 
+echo 'export TYPST_INSTALL="/home/runner/.typst"' >> ~/.bashrc
+echo 'export PATH="$TYPST_INSTALL/bin:$PATH"' >> ~/.bashrc
+exec "$SHELL"
+
 typst --version
 typst compile test.typ

@@ -60,8 +60,13 @@ else
 	esac
   cat <<EOF
 Manually add the directory to your \$HOME/$shell_profile (or similar)
-  export TYPST_INSTALL=\"$typst_install\"
-  export PATH=\"\$TYPST_INSTALL/bin:\$PATH\"
+  export TYPST_INSTALL="$typst_install"
+  export PATH="\$TYPST_INSTALL/bin:\$PATH"
+
+Example:
+  echo 'export TYPST_INSTALL="$typst_install"' >> ~/$shell_profile
+  echo 'export PATH="\$TYPST_INSTALL/bin:\$PATH"' >> ~/$shell_profile
+
 Run '$typst_install/bin/typst --help' to get started
 EOF
 fi
