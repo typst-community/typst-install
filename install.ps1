@@ -1,4 +1,5 @@
-# ⚠️ Keep this script simple and easily auditable!
+#!/usr/bin/env pwsh
+# Keep this script simple and easily auditable!
 $ErrorActionPreference = 'Stop'
 
 if ($v) {
