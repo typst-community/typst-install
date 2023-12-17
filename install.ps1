@@ -3,11 +3,10 @@
 $ErrorActionPreference = 'Stop'
 
 if ($v) {
-  $Tag = "v${v}"
+  $Version = "${v}"
 }
 if ($Args.Length -eq 1) {
   $Version = $Args.Get(0)
-  $Tag = "v${Version}"
 }
 
 $TypstInstall = $env:TYPST_INSTALL
@@ -19,10 +18,10 @@ $Target = 'x86_64-pc-windows-msvc'
 $Folder = "typst-${Target}"
 $File = "$Folder.zip"
 
-$URL = if (!$Tag) {
-  "https://github.com/typst/typst/releases/latest/download/$File"
+$URL = if ($Version) {
+  "https://github.com/typst/typst/releases/download/v${Version}/$File"
 } else {
-  "https://github.com/typst/typst/releases/download/${Tag}/$File"
+  "https://github.com/typst/typst/releases/latest/download/$File"
 }
 
 if (!(Test-Path "$TypstInstall")) {
