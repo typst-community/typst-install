@@ -22,6 +22,12 @@ else
   archive_ext=".tar.xz"
 fi
 
+if [ "$OS" = "Windows_NT" ]; then
+	exe_ext=".exe"
+else
+  exe_ext=""
+fi
+
 folder="typst-$target"
 file="$folder$archive_ext"
 
@@ -44,16 +50,16 @@ fi
 rm -f "$typst_install/$file"
 
 mkdir -p "$typst_install/bin"
-mv -f "$typst_install/$folder/typst" "$typst_install/bin/typst"
-chmod +x "$typst_install/bin/typst"
+mv -f "$typst_install/$folder/typst$exe_ext" "$typst_install/bin/typst$exe_ext"
+chmod +x "$typst_install/bin/typst$exe_ext"
 
 mv -f "$typst_install/$folder"/* "$typst_install"
 rm -rf "${typst_install:?}/$folder"
 
-echo "Typst installed to $typst_install/bin/typst"
+echo "Typst installed to $typst_install/bin/typst$exe_ext"
 
 if command -v typst >/dev/null; then
-	echo "Run 'typst --help' to get started"
+	echo "Run 'typst$exe_ext --help' to get started"
 else
 	case $SHELL in
     /bin/zsh) shell_profile=".zshrc";;
@@ -68,7 +74,7 @@ Example:
   echo 'export TYPST_INSTALL="$typst_install"' >> ~/$shell_profile
   echo 'export PATH="\$TYPST_INSTALL/bin:\$PATH"' >> ~/$shell_profile
 
-Run '$typst_install/bin/typst --help' to get started
+Run '$typst_install/bin/typst$exe_ext --help' to get started
 EOF
 fi
 
