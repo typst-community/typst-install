@@ -70,6 +70,28 @@ v="0.10.0"; irm https://typst.community/install_typst/install.ps1 | iex
 
 </details>
 
+Now you can use `typst`! It's installed to `~/.typst/*` by default.
+
+```sh
+The Typst compiler
+
+Usage: typst [OPTIONS] <COMMAND>
+
+Commands:
+  compile  Compiles an input file into a supported output format [aliases: c]
+  watch    Watches an input file and recompiles on changes [aliases: w]
+  query    Processes an input file to extract provided metadata
+  fonts    Lists all discovered fonts in system and custom font paths
+  update   Self update the Typst CLI
+  help     Print this message or the help of the given subcommand(s)
+
+Options:
+  -v, --verbosity...  Sets the level of logging verbosity: -v = warning & error, -vv = info, -vvv = debug, -vvvv = trace
+      --cert <CERT>   Path to a custom CA certificate to use when making network requests [env: TYPST_CERT=]
+  -h, --help          Print help
+  -V, --version       Print version
+```
+
 ## Development
 
 ![sh](https://img.shields.io/static/v1?style=for-the-badge&message=sh&color=4EAA25&logo=GNU+Bash&logoColor=FFFFFF&label=)
