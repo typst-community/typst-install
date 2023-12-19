@@ -6,7 +6,7 @@
 
 ```sh
 # ✨🚀
-curl -fsSL https://typst.community/install_typst/install.sh | sh
+curl -fsSL https://typst.community/typst_install/install.sh | sh
 typst compile paper.typ
 ```
 
@@ -27,13 +27,13 @@ instructions] and download a binary from [typst/typst releases].
 Linux, macOS, WSL
 
 ```sh
-curl -fsSL https://typst.community/install_typst/install.sh | sh
+curl -fsSL https://typst.community/typst_install/install.sh | sh
 ```
 
 Windows
 
 ```ps1
-irm https://typst.community/install_typst/install.ps1 | iex
+irm https://typst.community/typst_install/install.ps1 | iex
 ```
 
 <details><summary>Change install location</summary>
@@ -42,14 +42,14 @@ Linux, macOS, WSL
 
 ```sh
 export TYPST_INSTALL="/usr/local"
-curl -fsSL https://typst.community/install_typst/install.sh | sh
+curl -fsSL https://typst.community/typst_install/install.sh | sh
 ```
 
 Windows
 
 ```ps1
 $Env:TypstInstall = "C:\Program Files\typst"
-irm https://typst.community/install_typst/install.ps1 | iex
+irm https://typst.community/typst_install/install.ps1 | iex
 ```
 
 </details>
@@ -59,13 +59,13 @@ irm https://typst.community/install_typst/install.ps1 | iex
 Linux, macOS, WSL
 
 ```sh
-curl -fsSL https://typst.community/install_typst/install.sh | sh -s 0.10.0
+curl -fsSL https://typst.community/typst_install/install.sh | sh -s 0.10.0
 ```
 
 Windows
 
 ```ps1
-v="0.10.0"; irm https://typst.community/install_typst/install.ps1 | iex
+v="0.10.0"; irm https://typst.community/typst_install/install.ps1 | iex
 ```
 
 </details>
