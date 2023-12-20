@@ -58,24 +58,16 @@ rm -rf "${typst_install:?}/$folder"
 
 echo "Typst installed to $typst_install/bin/typst$exe_ext"
 
-if command -v typst >/dev/null; then
-	echo "Run 'typst$exe_ext --help' to get started"
-else
+if ! command -v typst >/dev/null; then
 	case $SHELL in
     /bin/zsh) shell_profile=".zshrc";;
     *) shell_profile=".bashrc";;
 	esac
-  cat <<EOF
-Manually add the directory to your \$HOME/$shell_profile (or similar)
-  export TYPST_INSTALL="$typst_install"
-  export PATH="\$TYPST_INSTALL/bin:\$PATH"
-
-Example:
+  echo '# Typst' >> ~/$shell_profile
   echo 'export TYPST_INSTALL="$typst_install"' >> ~/$shell_profile
   echo 'export PATH="\$TYPST_INSTALL/bin:\$PATH"' >> ~/$shell_profile
-
-Run '$typst_install/bin/typst$exe_ext --help' to get started
-EOF
+	echo "Added '$typst_install/bin' to your \$PATH via ~/$shell_profile"
+ 	echo "Run 'exec \$SHELL' to restart your shell and have 'typst' available"
 fi
-
+echo "Run 'typst --help' to get started"
 echo "Stuck? Open an Issue https://github.com/typst-community/typst-installer/issues"
