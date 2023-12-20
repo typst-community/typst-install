@@ -70,4 +70,4 @@ if ! command -v typst >/dev/null; then
  	echo "Run 'exec \$SHELL' to restart your shell and have 'typst' available"
 fi
 echo "Run 'typst --help' to get started"
-echo "Stuck? Open an Issue https://github.com/typst-community/install_typst/issues"
+echo "Stuck? Open an Issue https://github.com/typst-community/typst-installer/issues"

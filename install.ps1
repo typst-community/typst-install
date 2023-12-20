@@ -41,4 +41,4 @@ if (!(";${Path};".ToLower() -like "*;$TypstInstall\$Folder;*".ToLower())) {
 
 Write-Output "Typst was installed successfully to $TypstInstall\$Folder\typst.exe"
 Write-Output "Run 'typst --help' to get started"
-Write-Output "Stuck? Open an Issue https://github.com/typst-community/install_typst/issues"
+Write-Output "Stuck? Open an Issue https://github.com/typst-community/typst-installer/issues"

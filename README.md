@@ -7,7 +7,7 @@
 
 ```sh
 # ✨🚀
-curl -fsSL https://typst.community/typst-install/install.sh | sh
+curl -fsSL https://typst.community/typst-installer/install.sh | sh
 typst compile paper.typ
 ```
 
@@ -28,13 +28,13 @@ instructions] and download a binary from [typst/typst releases].
 Linux, macOS, WSL
 
 ```sh
-curl -fsSL https://typst.community/typst-install/install.sh | sh
+curl -fsSL https://typst.community/typst-installer/install.sh | sh
 ```
 
 Windows
 
 ```ps1
-irm https://typst.community/typst-install/install.ps1 | iex
+irm https://typst.community/typst-installer/install.ps1 | iex
 ```
 
 <details><summary>Change install location</summary>
@@ -42,15 +42,15 @@ irm https://typst.community/typst-install/install.ps1 | iex
 Linux, macOS, WSL
 
 ```sh
-export typst-install="/usr/local"
-curl -fsSL https://typst.community/typst-install/install.sh | sh
+export typst-installer="/usr/local"
+curl -fsSL https://typst.community/typst-installer/install.sh | sh
 ```
 
 Windows
 
 ```ps1
 $Env:TypstInstall = "C:\Program Files\typst"
-irm https://typst.community/typst-install/install.ps1 | iex
+irm https://typst.community/typst-installer/install.ps1 | iex
 ```
 
 </details>
@@ -60,13 +60,13 @@ irm https://typst.community/typst-install/install.ps1 | iex
 Linux, macOS, WSL
 
 ```sh
-curl -fsSL https://typst.community/typst-install/install.sh | sh -s 0.10.0
+curl -fsSL https://typst.community/typst-installer/install.sh | sh -s 0.10.0
 ```
 
 Windows
 
 ```ps1
-v="0.10.0"; irm https://typst.community/typst-install/install.ps1 | iex
+v="0.10.0"; irm https://typst.community/typst-installer/install.ps1 | iex
 ```
 
 </details>
@@ -99,7 +99,7 @@ Options:
 ![PowerShell](https://img.shields.io/static/v1?style=for-the-badge&message=PowerShell&color=5391FE&logo=PowerShell&logoColor=FFFFFF&label=)
 
 GitHub Pages is enabled and pulls straight from the `main` branch's root folder.
-That's how the `https://typst.community/typst-install/install.sh` script is
+That's how the `https://typst.community/typst-installer/install.sh` script is
 published. That means it's a good idea to **make sure that the `main` branch
 always works!** 😉
 
