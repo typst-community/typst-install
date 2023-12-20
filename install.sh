@@ -78,4 +78,4 @@ Run '$typst_install/bin/typst$exe_ext --help' to get started
 EOF
 fi
 
-echo "Stuck? Open an Issue https://github.com/typst-community/install_typst/issues"
+echo "Stuck? Open an Issue https://github.com/typst-community/typst-installer/issues"
