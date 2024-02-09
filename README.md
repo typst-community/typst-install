@@ -42,14 +42,14 @@ irm https://typst.community/typst-install/install.ps1 | iex
 Linux, macOS, WSL
 
 ```sh
-export typst-install="/usr/local"
+export TYPST_INSTALL="/usr/local"
 curl -fsSL https://typst.community/typst-install/install.sh | sh
 ```
 
 Windows
 
 ```ps1
-$Env:TypstInstall = "C:\Program Files\typst"
+$Env:TYPST_INSTALL = "C:\Program Files\typst"
 irm https://typst.community/typst-install/install.ps1 | iex
 ```
 
