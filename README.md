@@ -99,7 +99,7 @@ Options:
 ![PowerShell](https://img.shields.io/static/v1?style=for-the-badge&message=PowerShell&color=5391FE&logo=PowerShell&logoColor=FFFFFF&label=)
 
 GitHub Pages is enabled and pulls straight from the `main` branch's root folder.
-That's how the `https://typst.community/typst-install/install.sh` script is
+That's how the `https://install.typst.community/install.sh` script is
 published. That means it's a good idea to **make sure that the `main` branch
 always works!** 😉
 
